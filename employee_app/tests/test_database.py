@@ -10,9 +10,6 @@ from pathlib import Path
 class TestDatabase(unittest.TestCase):
 
     def setUp(self):
-        """
-        Creates a temporary database using the real schema and seed files.
-        """
 
         self.test_db = tempfile.NamedTemporaryFile(delete=False)
         self.test_db.close()
@@ -40,9 +37,6 @@ class TestDatabase(unittest.TestCase):
 
 
     def tearDown(self):
-        """
-        Restore original database path.
-        """
 
         database.DB_PATH = self.original_db_path
 
@@ -145,10 +139,6 @@ class TestDatabase(unittest.TestCase):
         self.assertIsNone(expense)
 
 
-
-    # -----------------------------
-    # SAD PATH
-    # -----------------------------
 
     def test_delete_approved_expense_fails(self):
 

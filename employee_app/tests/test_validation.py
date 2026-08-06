@@ -17,7 +17,6 @@ class TestExpenseValidation(unittest.TestCase):
         """
         Happy path:
         User enters valid expense information.
-        Expect parsed values returned.
         """
 
         form = {
@@ -38,11 +37,10 @@ class TestExpenseValidation(unittest.TestCase):
         """
         Sad path:
         User enters text instead of a number.
-        Expect validation failure.
         """
 
         form = {
-            "amount": "abc",
+            "amount": "haha",
             "description": "Hotel",
             "date": "2026-07-20"
         }
@@ -56,7 +54,6 @@ class TestExpenseValidation(unittest.TestCase):
         """
         Sad path:
         User enters a negative expense.
-        Expect validation failure.
         """
 
         form = {
@@ -74,7 +71,6 @@ class TestExpenseValidation(unittest.TestCase):
         """
         Sad path:
         User leaves description blank.
-        Expect validation failure.
         """
 
         form = {
@@ -92,7 +88,6 @@ class TestExpenseValidation(unittest.TestCase):
         """
         Sad path:
         User does not provide a date.
-        Expect validation failure.
         """
 
         form = {
